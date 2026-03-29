@@ -13,18 +13,20 @@ third_contractor = {"Битумный праймер", "Кирпич керам�
 # unique = set(first_contractor+second_contractor+third_contractor)
 # print(unique)
 
-symmetric_diff = str(first_contractor.difference(second_contractor, third_contractor)) + str(second_contractor.difference(third_contractor, first_contractor))+str(third_contractor.difference(second_contractor, first_contractor))
-
+# Общий список элементов встречающихся только у одного подрядчика
+symmetric_diff = str(", ".join(first_contractor.difference(second_contractor, third_contractor))) + ", " + str(", ".join(second_contractor.difference(third_contractor, first_contractor)))+", " +str(", ".join(third_contractor.difference(second_contractor, first_contractor)))
 print("Все уникальные элементы: " + str(symmetric_diff))
 
+# Пересечение у всех подрядчиков
 intersection = set(first_contractor).intersection(second_contractor, third_contractor)
+print("Общие во всех: " + str(", ".join(intersection)))
 
-print(intersection)
-
+# Уникальное для первого подрядчика
 only_first_contractor = first_contractor.difference(second_contractor, third_contractor)
-print(only_first_contractor)
+print("Уникальные только в первом: " + str(", ".join(only_first_contractor)))
 
+# Пересечение только у двух подрядчиков
 s1, s2, s3 = set(first_contractor), set(second_contractor), set(third_contractor)
 result = (s1 & s2 | s2 & s3 | s1 & s3) - (s1 & s2 & s3)
-print(list(result))
+print("Общие только у двух: " + str(", ".join(result)))
 
