@@ -5,12 +5,16 @@
 Цель: Изучение арифметических операций и работы переменных
 """
 
+# Инициализируем стартовые значения
 price = 2000.0
 quantity = 2
 print("Стоимость: " + str(price) + " Количество: " + str(quantity))
+
+# Вычисляем общую стоимость
 total_price = price * quantity
 print("Итого: " + str(total_price))
 
+# Реализуем логику скидок
 if total_price >= 1000 and total_price <= 5000:
     print("Скидка 5%")
     final_price = total_price - (total_price*0.05)
