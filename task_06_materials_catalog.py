@@ -29,3 +29,5 @@ del materials[1]
 # Выводим все элементы нового списка
 for i in range(0, len(materials)):
     print(materials[i])
+
+print("\nДлина списка: " + str(len(materials)))
