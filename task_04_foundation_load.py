@@ -5,3 +5,18 @@
 Цель: Изучение механизма работы системы ввода
 """
 
+weekdays_arr = ["Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота", "Воскресенье"]
+
+
+day_input = int(input("-- Введите день недели --"))
+
+if day_input == 6 | day_input == 7:
+    print(weekdays_arr[day_input-1])
+    print("Выходной")
+    print("Отдых")
+elif day_input < 6 and day_input > 0 :
+    print(weekdays_arr[day_input-1])
+    print("Рабочий")
+    print("8:00 - начало смены")
+else:
+    print("Некорректный ввод")
