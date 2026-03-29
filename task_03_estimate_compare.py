@@ -5,12 +5,16 @@
 Цель: Изучение ветвления и условий сравнения
 """
 
+# температура в цельсиях
 temperature_C = 232.8
 
+# перевод градусов по цельсию в фаренгейт
 temperature_F = temperature_C * 9/5 + 32
 
+# промежуточный вывод информации
 print("Температура по Цельсию: " + str(round(temperature_C, 2)) + "° равна " + str(round(temperature_F, 2)) + "° по Фаренгейту")
 
+# определяем состояние воды
 if temperature_C <= 0:
     print("Состояние воды - Лёд")
 elif temperature_C > 0 and temperature_C < 100:
