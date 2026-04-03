@@ -5,6 +5,7 @@
 Цель: Изучение работы с объектами и вложенными словарями
 """
 
+# Массив данных
 warehouse = {
     "Кирпич": {"quantity": 5000, "price": 12.50, "min_quantity": 1000},
     "Цемент": {"quantity": 120, "price": 450.00, "min_quantity": 50},
@@ -13,27 +14,34 @@ warehouse = {
     "Бетон": {"quantity": 45, "price": 4200.00, "min_quantity": 15}
 }
 
+# Шапка таблицы
 print("=" * 60)
 print("СИСТЕМА УЧЁТА СКЛАДА")
 print("-" * 60)
 print(f"{'Материал':<10} | {'Кол-во':<6} | {'Цена':<8} | {'Мин.':<5} | {'Стоимость'}")
 print("-" * 60)
 
+# Инициализируем переменные
 total_value = 0
 most_expensive_name = ""
 max_cost = 0
 critical_items = []
 
+# Проходим по словарю
 for name, info in warehouse.items():
     qty = info["quantity"]
     price = info["price"]
     min_qty = info["min_quantity"]
     cost = qty * price
+
     total_value += cost
+
+    # Ищем самый дорогой запас (кол-во * цена)
     if cost > max_cost:
         max_cost = cost
         most_expensive_name = name
 
+    # Проверка на критический остаток
     critical_str = ""
     if qty < min_qty:
         critical_str = "⚠ КРИТИЧ!"
@@ -45,10 +53,12 @@ print("-" * 60)
 print(f"ОБЩАЯ СТОИМОСТЬ: {total_value:.2f} руб")
 print(f"Самый дорогой: {most_expensive_name} ({max_cost:.2f} руб)")
 
+# Вывод критических остатков
 print(f"\n⚠ КРИТИЧЕСКИЕ ОСТАТКИ ({len(critical_items)}):")
 for item in critical_items:
     print(item)
 
+# Моделируем выдачу со склада
 print("\n=== ВЫДАЧА МАТЕРИАЛА ===")
 target = "Цемент"
 to_take = 25
